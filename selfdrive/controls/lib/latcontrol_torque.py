@@ -301,9 +301,9 @@ class LatControlTorque(LatControl):
 
     # --- Speed-Based Scaling ---
     # Reduces steering activity at lower speeds (below ~30 mph)
-    from openpilot.common.numpy_fast import interp
-    speed_scale = interp(CS.vEgo, [0.0, 15.0, 30.0], [0.7, 0.9, 1.0])
-    output_torque *= speed_scale
+    #from openpilot.common.numpy_fast import interp
+   # speed_scale = interp(CS.vEgo, [0.0, 15.0, 30.0], [0.7, 0.9, 1.0])
+   # output_torque *= speed_scale
     
     # TODO left is positive in this convention
     return -output_torque, 0.0, pid_log
