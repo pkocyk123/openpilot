@@ -126,11 +126,11 @@ class LateralPlanner:
 
        # --- Optional Path Smoothing ---
       # Reduce wiggles from noisy lane line/path predictions
-      if not hasattr(self, "_smooth_path_y"):
-       self._smooth_path_y = self.path_xyz[:, 1].copy()
+     # if not hasattr(self, "_smooth_path_y"):
+      # self._smooth_path_y = self.path_xyz[:, 1].copy()
       # Blend old path with new one (90% old, 10% new)
-        self._smooth_path_y = 0.9 * self._smooth_path_y + 0.1 * self.path_xyz[:, 1]
-        self.path_xyz[:, 1] = self._smooth_path_y
+       # self._smooth_path_y = 0.9 * self._smooth_path_y + 0.1 * self.path_xyz[:, 1]
+       # self.path_xyz[:, 1] = self._smooth_path_y
 
       low_speed = v_ego_car < 10 * CV.MPH_TO_MS
 
