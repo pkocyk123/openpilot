@@ -293,5 +293,17 @@ class LatControlTorque(LatControl):
         pid_log_sp.nnLog = nn_log
         self._pid_long_sp = pid_log_sp
 
+          # --- Custom Torque Deadzone ---
+    # Prevents micro oscillations by ignoring tiny torque corrections
+    TORQUE_DEADZONE = 0.05  # Adjust between 0.03–0.07 as needed
+    if abs(output_torque) < TORQUE_DEADZONE:
+        output_torque = 0.0
+
+    # --- Speed-Based Scaling ---
+    # Reduces steering activity at lower speeds (below ~30 mph)
+    from openpilot.common.numpy_fast import interp
+    speed_scale = interp(CS.vEgo, [0.0, 15.0, 30.0], [0.7, 0.9, 1.0])
+    output_torque *= speed_scale
+    
     # TODO left is positive in this convention
     return -output_torque, 0.0, pid_log
