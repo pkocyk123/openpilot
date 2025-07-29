@@ -229,7 +229,7 @@ def startup_master_alert(CP: car.CarParams, CS: car.CarState, sm: messaging.SubM
   if "REPLAY" in os.environ:
     branch = "replay"
 
-  return StartupAlert("Enjoy your ride :-)", branch, alert_status=AlertStatus.normal)
+  return StartupAlert("Hyundai Palisade", branch, alert_status=AlertStatus.normal)
  
 
 def below_engage_speed_alert(CP: car.CarParams, CS: car.CarState, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
