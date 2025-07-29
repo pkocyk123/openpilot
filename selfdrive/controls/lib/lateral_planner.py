@@ -124,14 +124,6 @@ class LateralPlanner:
         self.LP.rll_prob *= self.DH.lane_change_ll_prob
       self.d_path_w_lines_xyz = self.LP.get_d_path(self.v_ego, self.t_idxs, self.path_xyz)
 
-       # --- Optional Path Smoothing ---
-      # Reduce wiggles from noisy lane line/path predictions
-     # if not hasattr(self, "_smooth_path_y"):
-      # self._smooth_path_y = self.path_xyz[:, 1].copy()
-      # Blend old path with new one (90% old, 10% new)
-       # self._smooth_path_y = 0.9 * self._smooth_path_y + 0.1 * self.path_xyz[:, 1]
-       # self.path_xyz[:, 1] = self._smooth_path_y
-
       low_speed = v_ego_car < 10 * CV.MPH_TO_MS
 
       if not self.get_dynamic_lane_profile(sm['longitudinalPlanSP']) and not low_speed:
