@@ -126,7 +126,7 @@ class LateralPlanner:
 
       # --- Slow down actual lane change lateral shift ---
       if self.DH.desire in (log.Desire.laneChangeLeft, log.Desire.laneChangeRight):
-        self.d_path_w_lines_xyz[:, 1] *= 0.8  # adjust for slower lane change
+        self.d_path_w_lines_xyz[:, 1] *= 0.7  # adjust for slower lane change
 
       low_speed = v_ego_car < 10 * CV.MPH_TO_MS
 
