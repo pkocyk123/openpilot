@@ -295,7 +295,7 @@ class LatControlTorque(LatControl):
 
           # --- Custom Torque Deadzone ---
     # Prevents micro oscillations by ignoring tiny torque corrections
-    TORQUE_DEADZONE = 0.05  # Adjust between 0.03–0.07 as needed
+    TORQUE_DEADZONE = 0.07  # Adjust between 0.03–0.07 as needed
     if abs(output_torque) < TORQUE_DEADZONE:
         output_torque = 0.0
 
