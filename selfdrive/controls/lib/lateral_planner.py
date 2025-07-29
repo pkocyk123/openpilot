@@ -124,6 +124,10 @@ class LateralPlanner:
         self.LP.rll_prob *= self.DH.lane_change_ll_prob
       self.d_path_w_lines_xyz = self.LP.get_d_path(self.v_ego, self.t_idxs, self.path_xyz)
 
+      # --- Slow down actual lane change lateral shift ---
+      if self.DH.desire in (log.Desire.laneChangeLeft, log.Desire.laneChangeRight):
+        self.d_path_w_lines_xyz[:, 1] *= 0.8  # adjust for slower lane change
+
       low_speed = v_ego_car < 10 * CV.MPH_TO_MS
 
       if not self.get_dynamic_lane_profile(sm['longitudinalPlanSP']) and not low_speed:
