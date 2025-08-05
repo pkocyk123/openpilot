@@ -386,7 +386,7 @@ class CarInterfaceBase(ABC):
     return ret
 
   @staticmethod
-  def configure_torque_tune(candidate, tune, steering_angle_deadzone_deg=0.5, use_steering_angle=True):  #original deadzone 0.0 - PK
+  def configure_torque_tune(candidate, tune, steering_angle_deadzone_deg=0.7, use_steering_angle=True):  #original deadzone 0.0 - PK
     params = get_torque_params()[candidate]
 
     tune.init('torque')
