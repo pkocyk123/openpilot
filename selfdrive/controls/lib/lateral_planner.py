@@ -18,7 +18,7 @@ LaneChangeState = log.LaneChangeState
 
 
 PATH_COST = 1.0
-LATERAL_MOTION_COST = 0.15
+LATERAL_MOTION_COST = 0.16
 LATERAL_ACCEL_COST = 0.0
 LATERAL_JERK_COST = 0.05
 # Extreme steering rate is unpleasant, even
